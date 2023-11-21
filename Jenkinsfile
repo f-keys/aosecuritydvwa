@@ -2,7 +2,7 @@ pipeline {
     agent any 
 	environment {
 		def scannerHome = tool 'Sonar-scanner';
-		GITGUARDIAN_API_KEY = credentials('C9c29b0Bad94a3c2dACac7E3bDe31cb3feC10806fBEaAa709Dcb4476D94F2fEC6bD8A0F')
+		GITGUARDIAN_API_KEY = credentials('GITGUARDIAN_API_KEY')
 		
 	
 	}
