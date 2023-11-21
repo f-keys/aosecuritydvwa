@@ -2,8 +2,7 @@ pipeline {
     agent any 
 	environment {
 		def scannerHome = tool 'Sonar-scanner';
-		GITGUARDIAN_API_KEY = credentials('GITGUARDIAN_API_KEY')
-
+		GITGUARDIAN_API_KEY = credentials('C9c29b0Bad94a3c2dACac7E3bDe31cb3feC10806fBEaAa709Dcb4476D94F2fEC6bD8A0F')
 		
 	
 	}
@@ -14,7 +13,8 @@ pipeline {
 		  }
 	  }
 	    
-	stage('Secrets Management-GitGuardian Scan') {
+	
+	             stage('Secrets Management-GitGuardian Scan') {
             agent {
                 docker { image 'gitguardian/ggshield:latest'
 		       args '-i --entrypoint='}
@@ -23,7 +23,6 @@ pipeline {
                 sh 'ggshield secret scan ci'
             }
         } 
-	    
 	    
 	    
 
@@ -40,12 +39,12 @@ pipeline {
 
 
     
-	stage ("Dynamic Analysis - OWASP ZAP") {
+	    
+	  stage ("Dynamic Analysis - OWASP ZAP") {
 		  steps {
 		  	sh "docker run -t owasp/zap2docker-stable zap-baseline.py -t https://aopartnersdev.com.ng/devsecops/ || true"
 		 	 }
 			}
-	 
 	    
 
 	    
