@@ -130,7 +130,7 @@ echo "<!DOCTYPE html>
 
 	</div> <!--<div id=\"wrapper\"> -->
 
-	</body>
+	</bodyy>
 
 </html>";
 
